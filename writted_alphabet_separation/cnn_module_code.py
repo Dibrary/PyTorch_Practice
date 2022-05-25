@@ -1,4 +1,4 @@
-from writted_alphabet_seperation.mnist_data_get import batch_size,epoch_num,learning_rate,device,optim,train_loader
+from writted_alphabet_separation.mnist_data_get import batch_size,epoch_num,learning_rate,device,optim,train_loader
 
 import torch
 import torch.nn.functional as F

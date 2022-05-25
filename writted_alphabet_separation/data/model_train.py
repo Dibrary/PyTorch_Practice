@@ -1,5 +1,5 @@
-from writted_alphabet_seperation.cnn_module_code import *
-from writted_alphabet_seperation.mnist_data_get import test_loader
+from writted_alphabet_separation.cnn_module_code import *
+from writted_alphabet_separation.mnist_data_get import test_loader
 
 model.train()
 i = 1
