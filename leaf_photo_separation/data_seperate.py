@@ -1,5 +1,5 @@
 import math
-from leaf_photo_separation.data_separation import *
+from leaf_photo_separation.making_folder import *
 
 for cls in classes_list:
     path = os.path.join(original_dataset_dir, cls)

@@ -29,12 +29,3 @@ print("first_batch[0]", str(type(first_batch[0])), first_batch[0].shape) # (배�
 print("first_batch[1]", str(type(first_batch[1])), first_batch[1].shape) # 기설정한 batch_size다.
 
 
-
-
-
-
-
-
-
-
-
