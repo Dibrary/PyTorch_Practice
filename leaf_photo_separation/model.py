@@ -4,15 +4,15 @@ import torch.nn.functional as F
 import torch.optim as optim
 from data_loader import DEVICE, torch
 
-class Net(nn.Module):
-
+class Net(nn.Module): # nn.Module을 상속한다. (필수코드)
     def __init__(self):
 
-        super(Net, self).__init__()
-        self.conv1 = nn.Conv2d(3, 32, 3, padding=1)
-        self.pool = nn.MaxPool2d(2, 2)
-        self.conv2 = nn.Conv2d(32, 64, 3, padding=1)
-        self.conv3 = nn.Conv2d(64, 64, 3, padding=1)
+        super(Net, self).__init__() # 필수코드
+
+        self.conv1 = nn.Conv2d(3, 32, 3, padding=1) # 컨볼루젼 레이어
+        self.pool = nn.MaxPool2d(2, 2) # 풀링 레이어
+        self.conv2 = nn.Conv2d(32, 64, 3, padding=1) # 컨볼루젼 레이어
+        self.conv3 = nn.Conv2d(64, 64, 3, padding=1) # 컨볼루젼 레이어
 
         self.fc1 = nn.Linear(4096, 512)
         self.fc2 = nn.Linear(512, 33)

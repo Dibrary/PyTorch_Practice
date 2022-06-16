@@ -1,36 +1,41 @@
 import math
+import shutil # 파일 복사할 때 쓸 수 있는 모듈.
+
 from leaf_photo_separation.making_folder import *
 
 for cls in classes_list:
     path = os.path.join(original_dataset_dir, cls)
-    fnames = os.listdir(path)
+    fnames = os.listdir(path) # list로 안에 있는 이미지파일 '이름'들이 리스트로 나옴.
 
-    train_size = math.floor(len(fnames) * 0.6)
-    validation_size = math.floor(len(fnames) * 0.2)
+    train_size = math.floor(len(fnames) * 0.6) # fnames는 list로 나오므로 전체 리스트 길이의 60% 값이 train_size가 됨.
+    validation_size = math.floor(len(fnames) * 0.2) # fnames는 list로 나오므로 전체 리스트 길이의 20% 값이 validation_size가 됨.
     test_size = math.floor(len(fnames) * 0.2)
 
-    train_fnames = fnames[:train_size]
+    ############################################################
+    train_fnames = fnames[:train_size] # train_size까지 리스트 슬라이싱
     print("Train size(", cls, "): ", len(train_fnames))
 
     for fname in train_fnames:
         src = os.path.join(path, fname)
         dst = os.path.join(os.path.join(train_dir, cls), fname)
-        shutil.copyfile(src, dst)
+        shutil.copyfile(src, dst) # 여기서 파일 복사가 이뤄진다.
 
-    validation_fnames = fnames[train_size:(validation_size + train_size)]
+    ############################################################
+    validation_fnames = fnames[train_size:(validation_size + train_size)] # train_size부터 20% 슬라이싱
     print("Validation size(", cls, "): ", len(validation_fnames))
     for fname in validation_fnames:
         src = os.path.join(path, fname)
         dst = os.path.join(os.path.join(validation_dir, cls), fname)
-        shutil.copyfile(src, dst)
+        shutil.copyfile(src, dst) # 여기서 파일 복사가 이뤄진다.
 
-    test_fnames = fnames[(train_size + validation_size):(validation_size + train_size + test_size)]
+    ############################################################
+    test_fnames = fnames[(train_size + validation_size):(validation_size + train_size + test_size)] # 맨 마지막 20% 슬라이싱
 
     print("Test size(", cls, "): ", len(test_fnames))
     for fname in test_fnames:
         src = os.path.join(path, fname)
         dst = os.path.join(os.path.join(test_dir, cls), fname)
-        shutil.copyfile(src, dst)
+        shutil.copyfile(src, dst) # 여기서 파일 복사가 이뤄진다.
 
     '''
 Train size( Apple___Apple_scab ):  378
